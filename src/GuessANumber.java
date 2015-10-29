@@ -18,13 +18,15 @@ public class GuessANumber
 		
 		System.out.printf("What is the highest possible random number (positive)?: ");
 		int high = input.nextInt();
+		rand.SetHighNumber(high);
 		
 		System.out.printf("What is the lowest possible random number (positive)?: ");
 		int low = input.nextInt();
+		rand.SetLowNumber(low);
 		
 		for (int i = 0; i < 10; i++)
 		{
-			aryRandNum[i] = rand.GetANumber(low,high);
+			aryRandNum[i] = rand.GetANumber();
 			int remainder = aryRandNum[i] % 2;
 
 			System.out.printf("Round %d: Will the number be odd or even?: ", i+1);
@@ -33,7 +35,7 @@ public class GuessANumber
 			
 			if ((!guess.equals("ODD")) && (!guess.equals("EVEN")))
 			{
-				System.out.print("Invalid input. Try again.");
+				System.out.print("Invalid input.");
 			}
 
 			if (guess.equals("ODD"))

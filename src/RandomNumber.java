@@ -2,14 +2,25 @@ import java.util.Random;
 
 public class RandomNumber
 {
-
-	public int GetANumber()
+	private int lo, hi;
+	
+	public void SetLowNumber(int low)
 	{
-		Random rand = new Random();
-		return rand.nextInt(10) + 1;
+		lo = low;
 	}
 	
-	public int GetANumber(int high)
+	public void SetHighNumber(int high)
+	{
+		hi = high;
+	}
+	
+	public int GetANumber()
+	{	
+		Random rand = new Random();
+		return rand.nextInt(hi - lo + 1) + lo;
+	}
+	
+	/*public int GetANumber(int high)
 	{
 		Random rand = new Random();
 		return rand.nextInt(high + 1);
@@ -19,6 +30,6 @@ public class RandomNumber
 	{
 		Random rand = new Random();
 		return rand.nextInt(hi - lo + 1) + lo;
-	}
+	}**/
 	
 }
